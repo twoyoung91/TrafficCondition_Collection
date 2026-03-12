@@ -1,0 +1,242 @@
+/* -----------------------------------------------------------------------
+   style.css  —  NYC Traffic Recorder layout
+   ----------------------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  color: #1a1a2e;
+  background: #f4f6f9;
+}
+
+/* ---- Two-column layout ---- */
+body {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#map-container {
+  flex: 1 1 auto;
+  position: relative;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Right panel ---- */
+#control-panel {
+  flex: 0 0 320px;
+  width: 320px;
+  background: #ffffff;
+  border-left: 1px solid #dce1e9;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#control-panel header {
+  background: #1a237e;
+  color: #ffffff;
+  padding: 16px 18px;
+}
+
+#control-panel header h1 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* ---- Panel sections ---- */
+.panel-section {
+  border-bottom: 1px solid #dce1e9;
+  padding: 14px 18px;
+}
+
+.panel-section h2 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+/* ---- Info boxes ---- */
+.info-box {
+  background: #f0f2f5;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: "Courier New", monospace;
+  word-break: break-all;
+  min-height: 32px;
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: #999;
+}
+
+/* ---- Buttons ---- */
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  flex: 1;
+  padding: 9px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #1565c0;
+  color: #fff;
+}
+
+.btn-primary:not(:disabled):hover {
+  background: #0d47a1;
+}
+
+.btn-danger {
+  background: #c62828;
+  color: #fff;
+}
+
+.btn-danger:not(:disabled):hover {
+  background: #b71c1c;
+}
+
+/* ---- Status table ---- */
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.status-table td {
+  padding: 4px 0;
+}
+
+.status-table td:first-child {
+  color: #666;
+  width: 50%;
+}
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.badge-idle {
+  background: #e0e0e0;
+  color: #555;
+}
+
+.badge-recording {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.badge-error {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+/* ---- Error box ---- */
+.error-box {
+  margin-top: 10px;
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #b71c1c;
+  word-break: break-word;
+}
+
+/* ---- File list ---- */
+.file-list {
+  list-style: none;
+  font-size: 13px;
+}
+
+.file-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}
+
+.file-list a {
+  color: #1565c0;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.file-list a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Legend ---- */
+.legend {
+  list-style: none;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border: 1px solid rgba(0,0,0,0.15);
+}

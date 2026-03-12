@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Traffic Recorder</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet.draw CSS -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- Left: full-height map -->
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+
+  <!-- Right: control panel -->
+  <aside id="control-panel">
+
+    <header>
+      <h1>NYC Traffic Recorder</h1>
+      <p class="subtitle">Capture Google Maps traffic conditions every 5 minutes.</p>
+    </header>
+
+    <!-- Study area selection -->
+    <section class="panel-section" id="section-bbox">
+      <h2>1. Select Study Area</h2>
+      <p class="hint">Use the rectangle tool on the map to draw a bounding box.</p>
+      <div id="bbox-display" class="info-box muted">No area selected</div>
+      <div id="preview-display" class="info-box muted"></div>
+    </section>
+
+    <!-- Recording controls -->
+    <section class="panel-section" id="section-controls">
+      <h2>2. Recording</h2>
+      <div class="btn-row">
+        <button id="btn-start" class="btn btn-primary" disabled>Start Recording</button>
+        <button id="btn-stop"  class="btn btn-danger"  disabled>Stop Recording</button>
+      </div>
+    </section>
+
+    <!-- Live status -->
+    <section class="panel-section" id="section-status">
+      <h2>Status</h2>
+      <table class="status-table">
+        <tr><td>State</td>      <td><span id="st-active"  class="badge badge-idle">Idle</span></td></tr>
+        <tr><td>Segments</td>   <td><span id="st-segments">—</span></td></tr>
+        <tr><td>Tiles / pass</td><td><span id="st-tiles">—</span></td></tr>
+        <tr><td>Captures</td>   <td><span id="st-count">0</span></td></tr>
+        <tr><td>Last capture</td><td><span id="st-last">—</span></td></tr>
+        <tr><td>Next capture</td><td><span id="st-next">—</span></td></tr>
+      </table>
+      <div id="st-error" class="error-box" style="display:none;"></div>
+    </section>
+
+    <!-- Output files -->
+    <section class="panel-section" id="section-files">
+      <h2>Output Files</h2>
+      <ul id="file-list" class="file-list">
+        <li class="muted">No captures yet.</li>
+      </ul>
+    </section>
+
+    <!-- Traffic legend -->
+    <section class="panel-section" id="section-legend">
+      <h2>Traffic Conditions</h2>
+      <ul class="legend">
+        <li><span class="swatch" style="background:#11d68f;"></span> fast</li>
+        <li><span class="swatch" style="background:#ffcf43;"></span> moderate</li>
+        <li><span class="swatch" style="background:#f24e42;"></span> slow</li>
+        <li><span class="swatch" style="background:#a92727;"></span> very slow</li>
+        <li><span class="swatch" style="background:#9e9e9e;"></span> unknown — no data</li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet.draw JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
